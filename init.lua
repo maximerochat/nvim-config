@@ -165,6 +165,7 @@ vim.opt.scrolloff = 10
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<Space>b', '<Cmd>Neotree toggle<CR>')
+vim.keymap.set('n', '<Space>v', '<Cmd>Neotree focus<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -695,13 +696,11 @@ require('lazy').setup({
         clangd = {},
         -- gopls = {},
         pyright = {},
-        glasgow = {},
-        wgsl_analyser = {},
         dockerls = {},
         html = {},
         cmake = {},
         cssls = {},
-        csharp_ls = {},
+        csharp_ls = { settings = { csharp = { signatureHelp = { enabled = true } } } },
         glsl_analyzer = {
           filetypes = { 'glsl', 'vert', 'tesc', 'tese', 'frag', 'geom', 'comp', 'html' },
         },
@@ -783,7 +782,7 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
+        local disable_filetypes = { c = true, cpp = true, html = true }
         local lsp_format_opt
         if disable_filetypes[vim.bo[bufnr].filetype] then
           lsp_format_opt = 'never'
