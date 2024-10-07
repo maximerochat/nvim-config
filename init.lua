@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.python3_host_prog = '/usr/bin/python3'
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -120,7 +120,7 @@ end)
 
 -- Enable break indent
 vim.opt.breakindent = true
-
+vim.opt.relativenumber = true
 -- Save undo history
 vim.opt.undofile = true
 
@@ -323,7 +323,7 @@ require('lazy').setup({
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
-        { '<leader>g', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>g', group = '[G]it Hunk', mode = { 'n', 'v' } },
         { '<leader>h', group = '[H]arpoon', mode = { 'n', 'v' } },
       },
     },
